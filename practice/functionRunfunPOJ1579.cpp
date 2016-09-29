@@ -3,11 +3,10 @@
 #include <iostream>
 #include <vector>
 
-int w[20][20][20];
+int w[20][20][20]={0};
 
 int calcu(int a, int b, int c)
 {
-	int results[20][20][20] = {0};
 	if(a <= 0 || b <= 0 || c <= 0)
 		return 1;
 	else if (a > 20 || b > 20 || c > 20)
