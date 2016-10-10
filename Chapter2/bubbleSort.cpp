@@ -4,7 +4,7 @@
 #include <iterator>
 #include <sstream>
 
-#include "../util/util.h"
+#include "./util/util.h"
 
 int main()
 {
