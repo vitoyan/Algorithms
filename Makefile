@@ -72,8 +72,8 @@ RECURSION = 1
 
 # The executable file name.
 # If not specified, current directory name or `demo.out' will be used.
-PROGRAM   = Chapter2/bubbleSort\
-			Chapter2/insertionSortDescend\
+PROGRAM   = Sorting/bubbleSort\
+			Sorting/insertionSortDescend\
 			practice/functionRunfunPOJ1579
 
 ## Implicit Section: change the following only when necessary.
