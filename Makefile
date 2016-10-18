@@ -75,7 +75,7 @@ RECURSION = 1
 PROGRAM   = sorting/bubbleSort\
 			sorting/insertionSortDescend\
 			practice/functionRunfunPOJ1579\
-			practice/holidayHotelsPOJ2726
+			practice/holidayHotelsCpp11POJ2726
 
 ## Implicit Section: change the following only when necessary.
 ##==========================================================================
