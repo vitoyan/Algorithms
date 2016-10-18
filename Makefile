@@ -74,7 +74,8 @@ RECURSION = 1
 # If not specified, current directory name or `demo.out' will be used.
 PROGRAM   = sorting/bubbleSort\
 			sorting/insertionSortDescend\
-			practice/functionRunfunPOJ1579
+			practice/functionRunfunPOJ1579\
+			practice/holidayHotelsPOJ2726
 
 ## Implicit Section: change the following only when necessary.
 ##==========================================================================
