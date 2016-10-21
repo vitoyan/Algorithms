@@ -62,8 +62,8 @@ MY_LIBS   =
 
 # The pre-processor options used by the cpp (man cpp for more).
 CPPFLAGS  = -Wall -std=c++11
-CFLAGS  = -g
-CXXFLAGS= -g
+CFLAGS  = -g3
+CXXFLAGS= -g3
 
 # The root of the project.
 SRCROOT   = .
@@ -74,6 +74,7 @@ RECURSION = 1
 # If not specified, current directory name or `demo.out' will be used.
 PROGRAM   = sorting/bubbleSort\
 			sorting/insertionSortDescend\
+			sorting/heapSortMax\
 			practice/functionRunfunPOJ1579\
 			practice/holidayHotelsPOJ2726
 
