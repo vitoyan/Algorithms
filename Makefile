@@ -75,6 +75,7 @@ RECURSION = 1
 PROGRAM   = sorting/bubbleSort\
 			sorting/insertionSortDescend\
 			sorting/heapSortMax\
+			sorting/quickSort\
 			practice/functionRunfunPOJ1579\
 			practice/holidayHotelsPOJ2726
 
