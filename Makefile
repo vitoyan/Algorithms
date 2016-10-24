@@ -77,6 +77,7 @@ PROGRAM   = sorting/bubbleSort\
 			sorting/heapSortMax\
 			sorting/quickSort\
 			sorting/mergeSort\
+			sorting/shellSort\
 			practice/functionRunfunPOJ1579\
 			practice/holidayHotelsPOJ2726
 
