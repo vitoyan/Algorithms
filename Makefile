@@ -62,8 +62,8 @@ MY_LIBS   =
 
 # The pre-processor options used by the cpp (man cpp for more).
 CPPFLAGS  = -Wall -std=c++11
-CFLAGS  = -g3
-CXXFLAGS= -g3
+CFLAGS  = -g
+CXXFLAGS= -g
 
 # The root of the project.
 SRCROOT   = .
@@ -79,6 +79,7 @@ PROGRAM   = sorting/bubbleSort\
 			sorting/mergeSort\
 			sorting/shellSort\
 			sorting/countSort\
+			sorting/radixSort\
 			practice/functionRunfunPOJ1579\
 			practice/holidayHotelsPOJ2726
 
