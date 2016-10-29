@@ -72,7 +72,8 @@ RECURSION = 1
 
 # The executable file name.
 # If not specified, current directory name or `demo.out' will be used.
-PROGRAM   = sorting/bubbleSort\
+PROGRAM   = finding/findMaxMin\
+			sorting/bubbleSort\
 			sorting/insertionSortDescend\
 			sorting/heapSortMax\
 			sorting/quickSort\
