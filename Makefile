@@ -80,6 +80,7 @@ PROGRAM   = sorting/bubbleSort\
 			sorting/shellSort\
 			sorting/countSort\
 			sorting/radixSort\
+			sorting/bucketSort\
 			practice/functionRunfunPOJ1579\
 			practice/holidayHotelsPOJ2726
 
