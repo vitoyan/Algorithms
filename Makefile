@@ -73,6 +73,7 @@ RECURSION = 1
 # The executable file name.
 # If not specified, current directory name or `demo.out' will be used.
 PROGRAM   = finding/findMaxMin\
+			finding/randomizedSelect\
 			sorting/bubbleSort\
 			sorting/insertionSortDescend\
 			sorting/heapSortMax\

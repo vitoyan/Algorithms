@@ -79,7 +79,5 @@ int main()
     findMaxMin(input, &max, &min);
 
     std::cout<<"max is "<<max<<std::endl;
-    std::cout<<"min is "<<min<<std::endl;
-
-    
+    std::cout<<"min is "<<min<<std::endl;    
 }
