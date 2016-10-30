@@ -9,7 +9,7 @@
 int partition(std::vector<int> &input, int p, int r)
 {
 	int i = p- 1;
-	for(int j = p; j < r; j++)
+	for(int j = p; j <= r; j++)
 	{
 		if(input[j] <= input[r])
 		{
@@ -18,11 +18,7 @@ int partition(std::vector<int> &input, int p, int r)
 			input[j] = input[i];
 			input[i] = temp;
 		}
-	}
-	i++;
-	int temp2 = input[i];
-	input[i] = input[r];
-	input[r] = temp2;
+	}	
 	return i;
 }
 
