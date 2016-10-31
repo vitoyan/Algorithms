@@ -75,6 +75,7 @@ RECURSION = 1
 PROGRAM   = finding/findMaxMin\
 			finding/randomizedSelect\
 			finding/select\
+			link/reverseLink\
 			sorting/bubbleSort\
 			sorting/insertionSortDescend\
 			sorting/heapSortMax\
