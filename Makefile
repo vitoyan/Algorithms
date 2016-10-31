@@ -76,6 +76,7 @@ PROGRAM   = finding/findMaxMin\
 			finding/randomizedSelect\
 			finding/select\
 			link/reverseLink\
+			link/removeDuplicates\
 			sorting/bubbleSort\
 			sorting/insertionSortDescend\
 			sorting/heapSortMax\

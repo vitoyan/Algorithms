@@ -41,7 +41,7 @@ int main()
     std::vector<int> input;
     while(!getIntArrayFromConsole(input));
     
-    Node* head = buildLink<int, Node>(input);
+    Node* head = DataStructure::buildLink<int, Node>(input);
     Node* node = reverseLink(head);
     
     while(node)

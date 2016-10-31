@@ -6,6 +6,8 @@
 #include <iterator>
 #include <sstream>
 
+namespace DataStructure
+{
 
 template <typename T,typename N>
 N* buildLink(std::vector<T> input)
@@ -32,6 +34,8 @@ N* buildLink(std::vector<T> input)
 	}
 
 	return head;
+}
+
 }
 
 #endif
