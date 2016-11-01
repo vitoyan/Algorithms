@@ -78,6 +78,7 @@ PROGRAM   = finding/findMaxMin\
 			link/reverseLink\
 			link/removeDuplicates\
 			link/findReverseKthNode\
+			link/removeNode\
 			sorting/bubbleSort\
 			sorting/insertionSortDescend\
 			sorting/heapSortMax\
