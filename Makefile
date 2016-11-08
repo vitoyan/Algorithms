@@ -80,6 +80,7 @@ PROGRAM   = finding/findMaxMin\
 			link/findReverseKthNode\
 			link/removeNode\
 			link/partitionByX\
+			link/calculateSum\
 			sorting/bubbleSort\
 			sorting/insertionSortDescend\
 			sorting/heapSortMax\
