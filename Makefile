@@ -81,6 +81,7 @@ PROGRAM   = finding/findMaxMin\
 			link/removeNode\
 			link/partitionByX\
 			link/calculateSum\
+			link/findLoopStart\
 			sorting/bubbleSort\
 			sorting/insertionSortDescend\
 			sorting/heapSortMax\
