@@ -82,6 +82,7 @@ PROGRAM   = finding/findMaxMin\
 			link/partitionByX\
 			link/calculateSum\
 			link/findLoopStart\
+			link/isPalindrome\
 			sorting/bubbleSort\
 			sorting/insertionSortDescend\
 			sorting/heapSortMax\
