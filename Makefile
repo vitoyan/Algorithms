@@ -92,6 +92,7 @@ PROGRAM   = finding/findMaxMin\
 			sorting/countSort\
 			sorting/radixSort\
 			sorting/bucketSort\
+			stack/stackMin\
 			practice/functionRunfunPOJ1579\
 			practice/holidayHotelsPOJ2726
 
