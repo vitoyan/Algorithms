@@ -93,6 +93,7 @@ PROGRAM   = finding/findMaxMin\
 			sorting/radixSort\
 			sorting/bucketSort\
 			stack/stackMin\
+			stack/Hanoi\
 			practice/functionRunfunPOJ1579\
 			practice/holidayHotelsPOJ2726
 
