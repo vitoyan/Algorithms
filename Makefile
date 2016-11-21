@@ -96,7 +96,8 @@ PROGRAM   = finding/findMaxMin\
 			sorting/radixSort\
 			sorting/bucketSort\
 			stack/stackMin\
-			stack/Hanoi
+			stack/Hanoi\
+			stack/ascendingStack
 			
 
 ## Implicit Section: change the following only when necessary.
