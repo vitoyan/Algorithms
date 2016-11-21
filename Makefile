@@ -83,6 +83,9 @@ PROGRAM   = finding/findMaxMin\
 			link/calculateSum\
 			link/findLoopStart\
 			link/isPalindrome\
+			practice/functionRunfunPOJ1579\
+			practice/holidayHotelsPOJ2726\
+			queue/mockQueue\
 			sorting/bubbleSort\
 			sorting/insertionSortDescend\
 			sorting/heapSortMax\
@@ -93,9 +96,8 @@ PROGRAM   = finding/findMaxMin\
 			sorting/radixSort\
 			sorting/bucketSort\
 			stack/stackMin\
-			stack/Hanoi\
-			practice/functionRunfunPOJ1579\
-			practice/holidayHotelsPOJ2726
+			stack/Hanoi
+			
 
 ## Implicit Section: change the following only when necessary.
 ##==========================================================================
