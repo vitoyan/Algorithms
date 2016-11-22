@@ -86,6 +86,7 @@ PROGRAM   = finding/findMaxMin\
 			practice/functionRunfunPOJ1579\
 			practice/holidayHotelsPOJ2726\
 			queue/mockQueue\
+			queue/animalQueue\
 			sorting/bubbleSort\
 			sorting/insertionSortDescend\
 			sorting/heapSortMax\
