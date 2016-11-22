@@ -72,7 +72,8 @@ RECURSION = 1
 
 # The executable file name.
 # If not specified, current directory name or `demo.out' will be used.
-PROGRAM   = finding/findMaxMin\
+PROGRAM   = binaryTree/inorderTreeWalk\
+			finding/findMaxMin\
 			finding/randomizedSelect\
 			finding/select\
 			link/reverseLink\
