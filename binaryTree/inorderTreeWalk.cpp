@@ -57,6 +57,38 @@ void inorderTreeWalk(Node* root)
 	}
 }
 
+void inorderTreeWalkMorris(Node* root)
+{
+	if(!root)
+		return;
+	Node* n = root;
+	while(n)
+	{
+		if(!(n->left))
+		{
+			std::cout<<n->key<<" ";
+			n = n->right;
+		}
+		else
+		{
+			Node* pre = n->left;
+			while(pre->right && pre->right != n)
+				pre = pre->right;
+			if(pre->right != n)
+			{
+				pre->right = n;
+				n = n->left;
+			}
+			else
+			{
+				pre->right = NULL;
+				std::cout<<n->key<<" ";
+				n = n->right;
+			}
+		}
+	}
+}
+
 int main()
 {
 	std::vector<int> input;
@@ -68,4 +100,7 @@ int main()
 
 	inorderTreeWalk(root);
 	std::cout<<std::endl;	
+
+	inorderTreeWalkMorris(root);
+	std::cout<<std::endl;
 }
