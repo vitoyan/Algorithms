@@ -73,6 +73,7 @@ RECURSION = 1
 # The executable file name.
 # If not specified, current directory name or `demo.out' will be used.
 PROGRAM   = binaryTree/inorderTreeWalk\
+			binaryTree/preorderTreeWalk\
 			finding/findMaxMin\
 			finding/randomizedSelect\
 			finding/select\
