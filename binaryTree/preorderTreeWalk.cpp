@@ -35,9 +35,8 @@ void preorderTreeWalk(Node* root)
 {
 	if(!root)
 		return;
-	Node* n = root;
 	std::stack<Node*> s;
-	s.push(n);
+	s.push(root);
 	while(!s.empty())
 	{
 		n = s.top();
