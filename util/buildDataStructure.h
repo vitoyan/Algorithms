@@ -75,6 +75,41 @@ N* buildLoopLink(std::vector<T> input)
 	return head;
 }
 
+/*
+build a binary tree with lowest high
+precondition: input must be order ascending
+*/
+template <typename T, typename N>
+N* buildBinaryTreeLowestHigh(std::vector<T> input, int start, int end)
+{
+	if(end < start)
+		return NULL;
+	//check input in the frist call
+	if(start == 0 && end == (int)(input.size() - 1))
+	{
+		auto pre = input.begin();
+		for(auto i = (pre + 1); i != input.end(); i++, pre++)
+		{
+			if(*pre > *i)
+				return NULL;
+		}	
+	}
+
+	N* n = new N;
+
+	n->key = input[(end + start)/2];
+	n->left = buildBinaryTreeLowestHigh<T, N>(input, start, (end + start)/2 - 1); 
+	n->right = buildBinaryTreeLowestHigh<T, N>(input, (end + start)/2 + 1, end);
+	n->p = NULL;
+
+	if(n->left)
+		n->left->p = n;
+	if(n->right)
+		n->right->p = n;
+
+	return n;
+}
+
 }
 
 #endif
