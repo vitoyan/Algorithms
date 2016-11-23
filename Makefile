@@ -74,6 +74,7 @@ RECURSION = 1
 # If not specified, current directory name or `demo.out' will be used.
 PROGRAM   = binaryTree/inorderTreeWalk\
 			binaryTree/preorderTreeWalk\
+			binaryTree/postorderTreeWalk\
 			finding/findMaxMin\
 			finding/randomizedSelect\
 			finding/select\

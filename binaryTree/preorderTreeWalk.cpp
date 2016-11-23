@@ -39,7 +39,7 @@ void preorderTreeWalk(Node* root)
 	s.push(root);
 	while(!s.empty())
 	{
-		n = s.top();
+		Node* n = s.top();
 		s.pop();
 		std::cout<<n->key<<" ";		
 		if(n->right)
