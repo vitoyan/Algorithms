@@ -110,6 +110,31 @@ N* buildBinaryTreeLowestHigh(std::vector<T> input, int start, int end)
 	return n;
 }
 
+template <typename T, typename N>
+N* buildBinaryTree(std::vector<T> input)
+{
+	if(input.empty())
+		return NULL;
+	N* n = new N;
+
+	n->key = input[0];
+	int size = (int)input.size();
+	int offset = (size + 1)/2 + ((size-1)%2?1:0);
+	if(size >= 2)
+		n->left = buildBinaryTree<T, N>(std::vector<T>(input.begin() + 1, input.begin() + offset)); 
+	if(size >= 3)
+		n->right = buildBinaryTree<T, N>(std::vector<T>(input.begin() + offset, input.end()));
+	n->p = NULL;
+
+	if(n->left)
+		n->left->p = n;
+	if(n->right)
+		n->right->p = n;
+
+	return n;
+}
+
+
 }
 
 #endif

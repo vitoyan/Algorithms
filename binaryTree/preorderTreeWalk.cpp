@@ -87,7 +87,7 @@ int main()
 {
 	std::vector<int> input;
     while(!getIntArrayFromConsole(input));
-	Node* root = DataStructure::buildBinaryTreeLowestHigh<int, Node>(input, 0, input.size() - 1);
+	Node* root = DataStructure::buildBinaryTree<int, Node>(input);
 	
 	preorderTreeWalkRecursively(root);
 	std::cout<<std::endl;
