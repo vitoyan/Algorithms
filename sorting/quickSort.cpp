@@ -46,7 +46,7 @@ public:
 
 void quickSort(std::vector<int> &input)
 {
-	if(input.empty() || input.size == 1)
+	if(input.empty() || input.size() == 1)
 	{
 		return;
 	}
