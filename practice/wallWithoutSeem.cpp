@@ -4,14 +4,14 @@
 #include <chrono>
 
 
-long long wall(long long w, long long h)
+long long wall(int w, int h)
 {
 	auto t1 = std::chrono::high_resolution_clock::now();
 	if(w < 2 || h == 0)
 		return 0;
 	
-	long long *p = NULL;
-	p = new long long[w + 1];
+	int *p = NULL;
+	p = new int[w + 1];
 
 	p[0] = 0;
 	p[1] = 0;
@@ -19,7 +19,7 @@ long long wall(long long w, long long h)
 	p[3] = 1;
 	p[4] = 1;
 	p[5] = 2;
-	for(long long i = 6; i < w + 1; i++)
+	for(int i = 6; i < w + 1; i++)
 	{
 		p[i] = p[i - 2] + p[i - 3];
 	}
@@ -27,9 +27,9 @@ long long wall(long long w, long long h)
 	if( h == 1)
 		return p[w];
 
-	std::vector<std::vector<std::queue<long long> > > layers;
-	std::queue<long long> s1, s2;
-	std::vector<std::queue<long long> > v1, v2;
+	std::vector<std::vector<std::queue<int> > > layers;
+	std::queue<int> s1, s2;
+	std::vector<std::queue<int> > v1, v2;
 	//for p[0]
 	layers.push_back(v1);
 	//for p[1]
@@ -49,9 +49,9 @@ long long wall(long long w, long long h)
 	layers.push_back(v1);
 
 	//calculating layers 
-	for(long long i = 5; i < w + 1; i++)
+	for(int i = 5; i < w + 1; i++)
 	{
-		std::vector<std::queue<long long> > tmp;
+		std::vector<std::queue<int> > tmp;
 		auto m = layers[i - 3];
 		auto n = layers[i - 2];
 		for(auto it : m)
@@ -73,12 +73,12 @@ long long wall(long long w, long long h)
 		
 
 	//calculating bricks position
-	std::vector<std::queue<long long> > layer = layers.back();
-	std::vector<std::vector<long long> > pos;
+	std::vector<std::queue<int> > layer = layers.back();
+	std::vector<std::vector<int> > pos;
 	for(auto it : layer)
 	{
-		long long sum = 0;
-		std::vector<long long> tmp;
+		int sum = 0;
+		std::vector<int> tmp;
 		while(!it.empty())
 		{
 			sum += it.front();
@@ -93,17 +93,17 @@ long long wall(long long w, long long h)
               << " milliseconds\n";	
 
 	//calculating two layers without seem
-	std::vector<std::vector<long long> > matrix;
-	long long posSize = (long long)pos.size();
-	for(long long i = 0; i < posSize; i++)
+	std::vector<std::vector<int> > matrix;
+	int posSize = (int)pos.size();
+	for(int i = 0; i < posSize; i++)
 	{
-		std::vector<long long> tmp;
-		for(long long j = 0; j < posSize; j++)
+		std::vector<int> tmp;
+		for(int j = 0; j < posSize; j++)
 		{
 			if(i == j)
 				continue;
 			bool isDisjoint = true;
-			for(long long it1 = 0, it2 = 0; it1 < (long long)pos[i].size() && it2 < (long long)pos[j].size();)
+			for(int it1 = 0, it2 = 0; it1 < (int)pos[i].size() && it2 < (int)pos[j].size();)
 			{
 				if(pos[i][it1] == pos[j][it2])
 				{
@@ -125,14 +125,14 @@ long long wall(long long w, long long h)
 		matrix.push_back(tmp);		
 	}
 	auto t4 = std::chrono::high_resolution_clock::now();
-	std::cout << "calculating disjolong long took " << std::chrono::duration_cast<std::chrono::milliseconds>(t4-t3).count()
+	std::cout << "calculating disjoint took " << std::chrono::duration_cast<std::chrono::milliseconds>(t4-t3).count()
               << " milliseconds\n";	
 
 	std::vector<long long> walls(pos.size(), 1);
-	for(long long i = 0; i < h - 1; i++)
+	for(int i = 0; i < h - 1; i++)
 	{
 		std::vector<long long> tmp = walls;
-		for(long long j = 0; j < (long long)matrix.size(); j++)
+		for(int j = 0; j < (int)matrix.size(); j++)
 		{
 			long long sum = 0;
 			for(auto it2 : matrix[j])
@@ -159,7 +159,7 @@ long long wall(long long w, long long h)
 
 int main()
 {
-	long long w = 0, q = 0;
+	int w = 0, q = 0;
 	std::cin>>w>>q;
 	std::cout<<wall(w, q)<<std::endl;
 }
