@@ -88,6 +88,7 @@ PROGRAM   = binaryTree/inorderTreeWalk\
 			link/isPalindrome\
 			practice/functionRunfunPOJ1579\
 			practice/holidayHotelsPOJ2726\
+			practice/wallWithoutSeem\
 			queue/mockQueue\
 			queue/animalQueue\
 			sorting/bubbleSort\
