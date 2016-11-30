@@ -1,48 +1,24 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-#include <chrono>
 
-
-long long wall(int w, int h)
+void calculatingLayers(int w, std::vector<std::vector<std::queue<int> > > &layers)
 {
-	auto t1 = std::chrono::high_resolution_clock::now();
-	if(w < 2 || h == 0)
-		return 0;
-	
-	int *p = NULL;
-	p = new int[w + 1];
-
-	p[0] = 0;
-	p[1] = 0;
-	p[2] = 1;
-	p[3] = 1;
-	p[4] = 1;
-	p[5] = 2;
-	for(int i = 6; i < w + 1; i++)
-	{
-		p[i] = p[i - 2] + p[i - 3];
-	}
-
-	if( h == 1)
-		return p[w];
-
-	std::vector<std::vector<std::queue<int> > > layers;
 	std::queue<int> s1, s2;
 	std::vector<std::queue<int> > v1, v2;
-	//for p[0]
+	//for with = 0
 	layers.push_back(v1);
-	//for p[1]
+	//for with = 1
 	layers.push_back(v1);
-	//for p[2]
+	//for with = 2
 	s1.push(2);
 	v1.push_back(s1);
 	layers.push_back(v1);
-	//for p[3]
+	//for with = 3
 	s2.push(3);
 	v2.push_back(s2);
 	layers.push_back(v2);
-	//for p[4]
+	//for with = 4
 	s1.push(2);
 	v1.clear();
 	v1.push_back(s1);
@@ -67,14 +43,10 @@ long long wall(int w, int h)
 
 		layers.push_back(tmp);
 	}
-	auto t2 = std::chrono::high_resolution_clock::now();
-	std::cout << "calculating layers took " << std::chrono::duration_cast<std::chrono::milliseconds>(t2-t1).count()
-              << " milliseconds\n";
-		
+}
 
-	//calculating bricks position
-	std::vector<std::queue<int> > layer = layers.back();
-	std::vector<std::vector<int> > pos;
+void calculatingBricksPositions(int w, const std::vector<std::queue<int> > &layer, std::vector<std::vector<int> > &pos)
+{
 	for(auto it : layer)
 	{
 		int sum = 0;
@@ -87,13 +59,11 @@ long long wall(int w, int h)
 				tmp.push_back(sum);
 		}
 		pos.push_back(tmp);
-	}
-	auto t3 = std::chrono::high_resolution_clock::now();
-	std::cout << "calculating bricks position took " << std::chrono::duration_cast<std::chrono::milliseconds>(t3-t2).count()
-              << " milliseconds\n";	
+	}	
+}
 
-	//calculating two layers without seem
-	std::vector<std::vector<int> > matrix;
+void calculatingLayersDisjointMatrix(const std::vector<std::vector<int> > &pos, std::vector<std::vector<int> > &matrix)
+{
 	int posSize = (int)pos.size();
 	for(int i = 0; i < posSize; i++)
 	{
@@ -123,30 +93,64 @@ long long wall(int w, int h)
 				tmp.push_back(j);
 		}
 		matrix.push_back(tmp);		
-	}
-	auto t4 = std::chrono::high_resolution_clock::now();
-	std::cout << "calculating disjoint took " << std::chrono::duration_cast<std::chrono::milliseconds>(t4-t3).count()
-              << " milliseconds\n";	
+	}	
+}
 
-	std::vector<long long> walls(pos.size(), 1);
+template <class T1, class T2>
+void calculatingWalls(int h, const std::vector<std::vector<T1> > &matrix, std::vector<T2> &walls)
+{
 	for(int i = 0; i < h - 1; i++)
 	{
-		std::vector<long long> tmp = walls;
+		std::vector<T2> tmp = walls;
 		for(int j = 0; j < (int)matrix.size(); j++)
 		{
-			long long sum = 0;
+			T2 sum = 0;
 			for(auto it2 : matrix[j])
 			{
 				sum += walls[it2];
 			}
 			tmp[j] = sum;
 		}
-		walls = tmp;
-		
+		walls = tmp;		
+	}	
+}
+
+long long wall(int w, int h)
+{
+	if(w < 2 || h == 0)
+		return 0;
+
+	if( h == 1)
+	{
+		long long *p = NULL;
+		p = new long long[w + 1];
+
+		p[0] = 0;
+		p[1] = 0;
+		p[2] = 1;
+		if(w > 2)
+			p[3] = 1;
+		for(int i = 4; i < w + 1; i++)
+		{
+			p[i] = p[i - 2] + p[i - 3];
+		}
+		long long ret = p[w];
+		delete[] p;
+		return ret;
 	}
-	auto t5 = std::chrono::high_resolution_clock::now();
-	std::cout << "calculating walls took " << std::chrono::duration_cast<std::chrono::milliseconds>(t5-t4).count()
-              << " milliseconds\n";	
+
+	std::vector<std::vector<std::queue<int> > > layers;
+	calculatingLayers(w, layers);
+			
+	std::vector<std::queue<int> > layer = layers.back();
+	std::vector<std::vector<int> > pos;
+	calculatingBricksPositions(w, layer, pos);
+
+	std::vector<std::vector<int> > matrix;
+	calculatingLayersDisjointMatrix(pos, matrix);
+
+	std::vector<long long> walls(pos.size(), 1);
+	calculatingWalls<int, long long>(h, matrix, walls);
 	
 	long long ret = 0;
 	for(auto it : walls)
@@ -155,7 +159,6 @@ long long wall(int w, int h)
 	}
 	return ret;
 }
-
 
 int main()
 {
