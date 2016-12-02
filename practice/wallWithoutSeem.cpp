@@ -84,7 +84,7 @@ void calculatingLayersDisjointMatrix(const std::vector<std::vector<int> > &pos, 
 				{
 					it2++;
 				}
-				if(pos[i][it1] < pos[j][it2])
+				else
 				{
 					it1++;
 				}
