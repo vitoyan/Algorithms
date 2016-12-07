@@ -75,6 +75,7 @@ RECURSION = 1
 PROGRAM   = binaryTree/inorderTreeWalk\
 			binaryTree/preorderTreeWalk\
 			binaryTree/postorderTreeWalk\
+			binaryTree/createLinkedListsForEachDepth\
 			finding/findMaxMin\
 			finding/randomizedSelect\
 			finding/select\
