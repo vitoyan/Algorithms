@@ -77,6 +77,7 @@ PROGRAM   = binaryTree/inorderTreeWalk\
 			binaryTree/postorderTreeWalk\
 			binaryTree/createLinkedListsForEachDepth\
 			binaryTree/findHeightOfTree\
+			binaryTree/convertBinaryTreeToThreaded\
 			finding/findMaxMin\
 			finding/randomizedSelect\
 			finding/select\
