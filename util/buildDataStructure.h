@@ -6,6 +6,7 @@
 #include <iterator>
 #include <sstream>
 #include <map>
+#include <algorithm>
 
 namespace DataStructure
 {
@@ -134,6 +135,30 @@ N* buildBinaryTree(std::vector<T> input)
 	return n;
 }
 
+template <typename T, typename N>
+N* buildBinarySearchTree(std::vector<T> input)
+{
+	if(input.empty())
+		return NULL;
+
+	std::sort(input.begin(), input.end());
+
+	N*n = new N;
+
+	n->key = input[((int)input.size())/2];
+	int size = (int)input.size();
+	if(size >= 2)
+		n->left = buildBinarySearchTree<T, N>(std::vector<T>(input.begin(), input.begin() + size/2));
+	if(size >= 3)
+		n->right = buildBinarySearchTree<T, N>(std::vector<T>(input.begin() + size/2 + 1, input.end()));
+
+	if(n->left)
+		n->left->p = n;
+	if(n->right)
+		n->right->p = n;
+
+	return n;
+}
 
 }
 
