@@ -291,19 +291,19 @@ void RBTree::del(Node *n)
 					leftRotate(w->p);
 					w = k->p->right;
 				}
-				else if(w->right->color == "black" && w->left->color == "black")
+				else if((!w->right || w->right->color == "black") && ( !w->left || w->left->color == "black"))
 				{
 					w->color = "red";
 					k = k->p;
 				}
-				else if(w->right->color == "black" && w->left->color == "red")
+				else if((!w->right || w->right->color == "black") && (w->left || w->left->color == "red"))
 				{	
 					w->right->color = "black";
 					w->color = "red";
 					rightRotate(w);
 					w = w->p;
 				}
-				else if(w->right->color == "red")
+				else if( w->right && w->right->color == "red")
 				{
 					w->color = w->p->color;
 					w->p->color = "black";
@@ -322,19 +322,19 @@ void RBTree::del(Node *n)
 					rightRotate(w->p);
 					w = k->p->left;
 				}
-				else if(w->right->color == "black" && w->left->color == "black")
+				else if((!w->right || w->right->color == "black") && ( !w->left || w->left->color == "black"))
 				{
 					w->color = "red";
 					k = k->p;					
 				}
-				else if(w->right->color == "red" && w->left->color == "black")
+				else if((!w->right || w->right->color == "red") && (w->left || w->left->color == "black"))
 				{	
 					w->color = "red";
 					w->right->color = "black";
 					rightRotate(w);
 					w = w->p;					
 				}
-				else if(w->right->color == "red")
+				else if(w->left || w->left->color == "red")
 				{
 					w->color = w->p->color;
 					w->p->color = "black";
@@ -369,6 +369,9 @@ int main()
 
     //test case
     //input 1 2 3 4 5 6 7 8
-    rbt.del(rbt.find(3));
+    int n;
+    std::cout<<"pls input the test number: ";
+ 	std::cin>>n;
+    rbt.del(rbt.find(n));
     DataStructure::printRedBlackTreeLayers<Node>(rbt.getRoot());
 }
