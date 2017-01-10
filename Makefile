@@ -80,6 +80,7 @@ PROGRAM   = binaryTree/inorderTreeWalk\
 			binaryTree/convertBinaryTreeToThreaded\
 			binaryTree/BinarySearchTree\
 			binaryTree/redBlackTree\
+			binaryTree/AVLtree\
 			finding/findMaxMin\
 			finding/randomizedSelect\
 			finding/select\

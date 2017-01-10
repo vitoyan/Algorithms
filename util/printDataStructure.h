@@ -173,6 +173,37 @@ void printRedBlackTreeLayers(T* node)
 	}		
 }
 
+template <typename T>
+void printAVLTreeLayers(T* node)
+{
+	if(!node)
+		return;
+	std::queue<T*> p;
+	std::queue<T*> q;
+	
+	p.push(node);
+	while(!p.empty())
+	{
+		T* n = p.front();
+		if(n->left)
+			q.push(n->left);
+		if(n->right)
+			q.push(n->right);
+		p.pop();
+		std::cout<<n->key<<" height is "<<n->height<<" ";
+		if(n->p)
+		std::cout<<"father is "<<n->p->key<<" *** ";
+		if(p.empty())
+		{
+			std::cout<<std::endl;
+			if(!q.empty())
+			{
+				p.swap(q);
+			}
+		}
+	}		
+}
+
 }
 
 #endif
