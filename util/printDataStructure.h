@@ -159,7 +159,7 @@ void printRedBlackTreeLayers(T* node)
 		if(n->right)
 			q.push(n->right);
 		p.pop();
-		std::cout<<n->key<<" "<<n->color<<" ";
+		std::cout<<"Node : "<<n->key<<" "<<n->color<<" ";
 		if(n->p)
 		std::cout<<"father is "<<n->p->key<<" ";
 		if(p.empty())
@@ -190,9 +190,9 @@ void printAVLTreeLayers(T* node)
 		if(n->right)
 			q.push(n->right);
 		p.pop();
-		std::cout<<n->key<<" height is "<<n->height<<" ";
+		std::cout<<"Node : "<<n->key<<" height is "<<n->height<<" ";
 		if(n->p)
-		std::cout<<"father is "<<n->p->key<<" *** ";
+		std::cout<<"father is Node : "<<<<n->p->key<<" *** ";
 		if(p.empty())
 		{
 			std::cout<<std::endl;

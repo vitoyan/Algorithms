@@ -40,6 +40,7 @@ public:
 	Node* insertRecurisvely(Node *m, Node *n);
 	Node* deleteRecurisvely(Node *m, Node *n);
 	void insert(Node *n);
+	void del(Node *n);
 	void doBalance();
 	int getBalance(Node *n)
 	{
@@ -392,6 +393,169 @@ Node* AVL::deleteRecurisvely(Node *m, Node *n)
 	return m;
 }
 
+void AVL::del(Node *n)
+{
+	if(!n || !root || !find(n->key))
+		return;	
+
+	std::stack<Node*> s;
+	Node *parent = NULL;
+	Node *tmp = root;
+	while(tmp)
+	{
+		if(tmp->key > n->key)
+		{
+			parent = tmp;
+			s.push(parent);
+			tmp = tmp->left;
+		}
+		else if(tmp->key < n->key)
+		{
+			parent = tmp;
+			s.push(parent);
+			tmp = tmp->right;
+		}
+		else
+		{
+			s.push(tmp);
+			break;
+		}
+	}	
+	
+	if(!n->left && !n->right)
+	{
+		if(parent)
+		{
+			if(parent->key > n->key)
+				parent->left = NULL;
+			else
+				parent->right = NULL;
+		}
+				
+		delete n;
+		if(root == n)
+		{
+			root = NULL;
+			n = NULL;
+			return;
+		}
+		s.pop();
+	}
+	else if(!n->left)
+	{
+		if(parent)
+		{
+			if(parent->key > n->key)
+			{
+				parent->left = n->right;
+				n->right->p = parent;
+			}
+			else
+			{
+				parent->right = n->right;
+				n->right->p = parent;
+			}
+		}
+		if(root == n)
+		{
+			root = n->right;	
+			root->p = NULL;	
+		}
+		delete n;
+		n = NULL;
+		s.pop();
+	}
+	else if(!n->right)
+	{
+		if(parent->key > n->key)
+		{
+			parent->left = n->left;
+			n->left->p = parent;
+		}
+		else
+		{
+			parent->right = n->left;
+			n->left->p = parent;
+		}
+		if(root == n)
+		{
+			root = n->left;
+			root->p = NULL;
+		}
+		delete n;
+		n = NULL;
+		s.pop();
+	}
+	else
+	{
+		Node *pre = NULL;
+		Node *tmp2 = n->left;
+		while(tmp2)
+		{
+			pre = tmp2;
+			s.push(pre);
+			tmp2 = tmp2->right;
+		}
+		s.pop();
+		
+		n->key = pre->key;
+		//at lest the node n is in stack.
+		Node *preParent = s.top();
+		std::cout<<"preParent is "<<preParent->key<<std::endl;		
+		if(preParent == n)
+		{
+			preParent->left = pre->left;
+			if(pre->left)
+				pre->left->p = preParent;
+		}
+		else
+		{
+			preParent->right = pre->left;
+			if(pre->left)
+				pre->left->p = preParent;
+		}
+		
+		delete pre;
+	}
+
+	while(!s.empty())
+	{
+		Node *fixNode = s.top();
+		s.pop();
+
+		int leftHeight = fixNode->left ? fixNode->left->height : 0;
+		int rightHeight = fixNode->right ? fixNode->right->height : 0;
+
+		fixNode->height = leftHeight > rightHeight ? leftHeight + 1 : rightHeight + 1;
+
+		int balance = leftHeight - rightHeight;
+
+		//right left
+		if(balance <= -2 && getBalance(fixNode->right) > 0)
+		{
+			rightRotate(fixNode->right);
+			leftRotate(fixNode);
+		}
+		//right right 
+		else if(balance <= -2)
+		{
+			leftRotate(fixNode);
+		}
+		//left left
+		else if(balance >= 2 && getBalance(fixNode->left) <= 0)
+		{
+			rightRotate(fixNode);
+		}
+		//left right
+		else if(balance >= 2)
+		{
+			leftRotate(fixNode->left);
+			rightRotate(fixNode);
+		}
+	}
+
+}
+
 int main()
 {
 	std::vector<int> input;
@@ -422,7 +586,7 @@ int main()
     {
     	std::cout<<"pls input number : ";
     	std::cin>>nu;
-    	avl.deleteRecurisvely(avl.getRoot(), avl.find(nu));
+    	avl.del(avl.find(nu));
     	DataStructure::printAVLTreeLayers<Node>(avl.getRoot());
     }
     
