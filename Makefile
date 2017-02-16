@@ -81,6 +81,7 @@ PROGRAM   = binaryTree/inorderTreeWalk\
 			binaryTree/BinarySearchTree\
 			binaryTree/redBlackTree\
 			binaryTree/AVLtree\
+			DynamicProgramming/matrixChainOrder\
 			finding/findMaxMin\
 			finding/randomizedSelect\
 			finding/select\

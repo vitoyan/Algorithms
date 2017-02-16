@@ -192,7 +192,7 @@ void printAVLTreeLayers(T* node)
 		p.pop();
 		std::cout<<"Node : "<<n->key<<" height is "<<n->height<<" ";
 		if(n->p)
-		std::cout<<"father is Node : "<<<<n->p->key<<" *** ";
+		std::cout<<"father is Node : "<<n->p->key<<" *** ";
 		if(p.empty())
 		{
 			std::cout<<std::endl;
