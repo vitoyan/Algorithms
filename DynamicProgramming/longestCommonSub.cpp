@@ -18,7 +18,7 @@ std::vector<std::vector<direction> > longestCommonSub(const std::string &s1, con
 	for(int i = 1; i <= (int)s1.size(); i++)
 		for(int j = 1; j <= (int)s2.size(); j++)
 		{
-			if(s1[i] == s2[j])
+			if(s1[i-1] == s2[j-1])
 			{
 				m[i][j] = m[i - 1][j - 1] + 1;
 				n[i][j] = leftUp;
@@ -59,7 +59,7 @@ void printLongestCommonSub(std::vector<std::vector<direction> > r, const std::st
 	}
 	else if(r[x][y] == up)
 	{
-		printLongestCommonSub(r, str, x, y - 1);
+		printLongestCommonSub(r, str, x - 1, y);
 	}
 }
 
