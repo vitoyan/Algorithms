@@ -45,3 +45,10 @@ bool getIntArrayFromConsole(std::vector<int> &intArry)
   	*/
     return true;
 }
+
+void getInputStringFromConsole(std::string &str)
+{
+    std::cout<<"pls input string:\t"<<std::endl;
+
+    std::getline(std::cin, str);
+}
