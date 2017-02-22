@@ -85,6 +85,7 @@ PROGRAM   = binaryTree/inorderTreeWalk\
 			DynamicProgramming/longestCommonSub\
 			DynamicProgramming/cutSteel\
 			DynamicProgramming/activityOrder\
+			DynamicProgramming/0-1Package\
 			finding/findMaxMin\
 			finding/randomizedSelect\
 			finding/select\
