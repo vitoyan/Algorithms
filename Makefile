@@ -89,6 +89,7 @@ PROGRAM   = binaryTree/inorderTreeWalk\
 			finding/findMaxMin\
 			finding/randomizedSelect\
 			finding/select\
+			Greedy/activityOrder\
 			link/reverseLink\
 			link/removeDuplicates\
 			link/findReverseKthNode\
@@ -269,10 +270,10 @@ COBJS = $(filter-out $(foreach d,$(PROGRAM), \
 $(PROGRAM):$(OBJS)
 ifeq ($(SRC_CXX),)              # C program
 	$(LINK.c)   $(COBJS) $(SRCROOT)/$@.o $(MY_LIBS) -o $@
-	@echo Type $(SRCROOT)/$@ to execute the program.
+#	@echo Type $(SRCROOT)/$@ to execute the program.
 else                            # C++ program
 	$(LINK.cxx) $(COBJS) $(SRCROOT)/$@.o $(MY_LIBS) -o $@
-	@echo Type $(SRCROOT)/$@ to execute the program.
+#	@echo Type $(SRCROOT)/$@ to execute the program.
 endif
 
 ifndef NODEP
