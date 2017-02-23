@@ -68,6 +68,10 @@ int main()
 	}	
 
 	auto r = activityOrder(o);
+	std::sort(o.begin(), o.end(), [](activity &a, activity &b)
+	{
+		return a.id <= b.id;
+	});
 	for(auto &it : r)
 	{
 		std::cout<<it.id<<" ";
