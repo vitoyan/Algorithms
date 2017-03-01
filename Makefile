@@ -83,6 +83,7 @@ PROGRAM   = binaryTree/inorderTreeWalk\
 			binaryTree/AVLtree\
 			DynamicProgramming/matrixChainOrder\
 			DynamicProgramming/longestCommonSub\
+			DynamicProgramming/longestCommonSubStr\
 			DynamicProgramming/cutSteel\
 			DynamicProgramming/activityOrder\
 			DynamicProgramming/0-1Package\
