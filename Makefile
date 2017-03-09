@@ -81,6 +81,7 @@ PROGRAM   = binaryTree/inorderTreeWalk\
 			binaryTree/BinarySearchTree\
 			binaryTree/redBlackTree\
 			binaryTree/AVLtree\
+			binaryTree/checkBalance\
 			DynamicProgramming/matrixChainOrder\
 			DynamicProgramming/longestCommonSub\
 			DynamicProgramming/longestCommonSubStr\
