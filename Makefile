@@ -92,6 +92,7 @@ PROGRAM   = binaryTree/inorderTreeWalk\
 			finding/randomizedSelect\
 			finding/select\
 			Greedy/activityOrder\
+			Graph/graph\
 			link/reverseLink\
 			link/removeDuplicates\
 			link/findReverseKthNode\
