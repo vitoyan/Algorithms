@@ -139,7 +139,29 @@ graph::depthFirstTraverseRecursively(int nodeIndex)
 void
 graph::breadthFristTraverse(int nodeIndex)
 {
+	if(nodeIndex < 0 || nodeIndex >= mNodeCount)
+		return;
 
+	std::queue<int> nodeQueue;
+	nodeQueue.push(nodeIndex);
+	while(!nodeQueue.empty())
+	{
+		int index = nodeQueue.front();
+		Node *p = &pNodeArray[index];
+		nodeQueue.pop();
+		if(!p->isVisited)
+		{
+			std::cout<<p->mData<<" ";
+			p->isVisited = true;
+			for(int i = 0; i < mNodeCount; i++)
+			{
+				if(pMatrix[index*mNodeCount + i] == 1 && pNodeArray[i].isVisited == false)
+				{
+					nodeQueue.push(i);
+				}
+			}
+		}
+	}
 }
 
 bool
@@ -152,12 +174,6 @@ graph::getValueFromMatrix(int row, int col, int &val)
 
 	val = pMatrix[row*mNodeCount + col];
 	return true;
-}
-
-bool
-graph::breadthrFristTraverseImpli(std::vector<int> preVec)
-{
-
 }
 
 }
