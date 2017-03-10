@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <cstring>
 #include <iterator>
 #include <sstream>
 #include <map>
@@ -159,6 +160,42 @@ N* buildBinarySearchTree(std::vector<T> input)
 
 	return n;
 }
+
+class Node
+{
+public:
+	Node(std::string data = " ");
+	std::string mData;
+	bool isVisited;
+};
+
+class graph
+{
+public:
+	graph(int capacity);
+	~graph();
+	bool addNode(Node *pNode);
+	void resetNodes();
+
+	bool setValueToMatrixForDirectedGraph(int row, int col, int val = 1);
+	bool setValueToMatrixForUndirectedGraph(int row, int col, int val = 1);
+
+	void printMatrix();
+
+	void depthFirstTraverse(int nodeIndex);
+	void depthFirstTraverseRecursively(int nodeIndex);
+	void breadthFristTraverse(int nodeIndex);
+
+private:
+	bool getValueFromMatrix(int row, int col, int &val);
+	bool breadthrFristTraverseImpli(std::vector<int> preVec);
+
+private:
+	int mCapacity;
+	int mNodeCount;
+	Node *pNodeArray;
+	int *pMatrix;
+};
 
 }
 
