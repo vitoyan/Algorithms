@@ -104,6 +104,7 @@ PROGRAM   = binaryTree/inorderTreeWalk\
 			practice/functionRunfunPOJ1579\
 			practice/holidayHotelsPOJ2726\
 			practice/wallWithoutSeem\
+			practice/printMatrixWisely\
 			queue/mockQueue\
 			queue/animalQueue\
 			sorting/bubbleSort\
